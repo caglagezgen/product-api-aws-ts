@@ -18,5 +18,6 @@
   "bugs": {
     "url": "https://github.com/caglagezgen/product-api-aws-ts/issues"
   },
-  "homepage": "https://github.com/caglagezgen/product-api-aws-ts#readme"
+  "homepage": "https://github.com/caglagezgen/product-api-aws-ts#readme",
+  "dependencies": {}
 }
