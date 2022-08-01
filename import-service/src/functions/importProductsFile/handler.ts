@@ -5,12 +5,12 @@ import { HttpCode } from "src/utils/http.utils";
 import { APIGatewayProxyEvent } from "aws-lambda";
 import { formatResponse, lambdaHandler } from "src/utils/handler.utils";
 
-const BUCKET_NAME = "product-service-be"
+const BUCKET_NAME = "caglagzgn-aws-import-service"
 
 export const main = lambdaHandler(async (event: APIGatewayProxyEvent) => {
     const { name } = event.queryStringParameters;
 
-    const s3Client = new S3Client({ region: "eu-east-1" });
+    const s3Client = new S3Client({ region: "us-east-1" });
     const bucketParams = {
         Bucket: BUCKET_NAME,
         Key: `uploaded/${name}`,

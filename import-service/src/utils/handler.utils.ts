@@ -54,7 +54,7 @@ export const formatResponse = (response: any, statusCode: HttpCode = HttpCode.OK
     headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Credentials": true,
-      // "Content-Type": "application/json",
+      "Content-Type": "application/json",
     },
   };
 };
