@@ -1,0 +1,45 @@
+{
+  "name": "import-service",
+  "version": "1.0.0",
+  "description": "import-service created for aws-node course task5",
+  "main": "serverless.ts",
+  "scripts": {
+    "dev": "sls offline",
+    "deploy": "sls deploy",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "engines": {
+    "node": ">=14.15.0"
+  },
+  "keywords": [
+    "aws",
+    "node"
+  ],
+  "author": "caglagezgen",
+  "license": "MIT",
+  "devDependencies": {
+    "@serverless/typescript": "^3.21.0",
+    "@types/aws-lambda": "^8.10.101",
+    "@types/jest": "^28.1.6",
+    "@types/node": "^16.11.7",
+    "@types/pg": "^8.6.5",
+    "esbuild": "^0.14.49",
+    "jest": "^28.1.3",
+    "serverless": "^3.21.0",
+    "serverless-auto-swagger": "^2.8.2",
+    "serverless-esbuild": "^1.32.1",
+    "serverless-offline": "^9.0.0",
+    "ts-jest": "^28.0.7",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.137.0",
+    "@aws-sdk/s3-request-presigner": "^3.137.0",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.0.1",
+    "pg": "^8.7.3"
+  }
+}
