@@ -1,0 +1,100 @@
+
+Deploying to stage dev
+product-service › waiting
+import-service › waiting
+product-service › deploying
+product-service › Running "serverless deploy --stage dev"
+product-service › Running "serverless" from node_modules
+product-service › Deploying product-service to stage dev (us-east-1)
+product-service › Creating Swagger file...
+product-service › ✔ Service deployed to stack product-service-dev (201s)
+product-service › endpoints:
+product-service ›   GET - https://f8yw9c2t9g.execute-api.us-east-1.amazonaws.com/dev/products
+product-service ›   GET - https://f8yw9c2t9g.execute-api.us-east-1.amazonaws.com/dev/products/{productId}
+product-service ›   POST - https://f8yw9c2t9g.execute-api.us-east-1.amazonaws.com/dev/products
+product-service ›   GET - https://f8yw9c2t9g.execute-api.us-east-1.amazonaws.com/dev/swagger
+product-service ›   GET - https://f8yw9c2t9g.execute-api.us-east-1.amazonaws.com/dev/swagger.json
+product-service › functions:
+product-service ›   getProducts: product-service-dev-getProducts (108 kB)
+product-service ›   getProductById: product-service-dev-getProductById (108 kB)
+product-service ›   createProduct: product-service-dev-createProduct (109 kB)
+product-service ›   catalogBatchProcess: product-service-dev-catalogBatchProcess (446 kB)
+product-service ›   swaggerUI: product-service-dev-swagger-ui (1.6 kB)
+product-service ›   swaggerJSON: product-service-dev-swagger-json (3.3 kB)
+product-service › 1 deprecation found: run 'serverless doctor' for more details
+product-service › Monitor all your API routes with Serverless Console: run "serverless --console"
+product-service › Running "serverless info --verbose --stage dev"
+product-service › Running "serverless" from node_modules
+product-service › service: product-service
+product-service › stage: dev
+product-service › region: us-east-1
+product-service › stack: product-service-dev
+product-service › endpoints:
+product-service ›   GET - https://f8yw9c2t9g.execute-api.us-east-1.amazonaws.com/dev/products
+product-service ›   GET - https://f8yw9c2t9g.execute-api.us-east-1.amazonaws.com/dev/products/{productId}
+product-service ›   POST - https://f8yw9c2t9g.execute-api.us-east-1.amazonaws.com/dev/products
+product-service › functions:
+product-service ›   getProducts: product-service-dev-getProducts
+product-service ›   getProductById: product-service-dev-getProductById
+product-service ›   createProduct: product-service-dev-createProduct
+product-service ›   catalogBatchProcess: product-service-dev-catalogBatchProcess
+product-service › 
+product-service › Stack Outputs:
+product-service ›   GetProductByIdLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:142019455180:function:product-service-dev-getProductById:3
+product-service ›   sqsURL: https://sqs.us-east-1.amazonaws.com/142019455180/catalogItemsQueue
+product-service ›   SwaggerJSONLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:142019455180:function:product-service-dev-swagger-json:2
+product-service ›   sqsArn: arn:aws:sqs:us-east-1:142019455180:catalogItemsQueue
+product-service ›   SwaggerUILambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:142019455180:function:product-service-dev-swagger-ui:2
+product-service ›   CreateProductLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:142019455180:function:product-service-dev-createProduct:3
+product-service ›   CatalogBatchProcessLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:142019455180:function:product-service-dev-catalogBatchProcess:1
+product-service ›   ServiceEndpoint: https://f8yw9c2t9g.execute-api.us-east-1.amazonaws.com/dev
+product-service ›   ServerlessDeploymentBucketName: product-service-dev-serverlessdeploymentbucket-iqmohsozphac
+product-service ›   GetProductsLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:142019455180:function:product-service-dev-getProducts:4
+product-service › 1 deprecation found: run 'serverless doctor' for more details
+product-service › deployed
+import-service › deploying
+import-service › Running "serverless deploy --stage dev --param sqsURL=https://sqs.us-east-1.amazonaws.com/142019455180/catalogItemsQueue --param sqsArn=arn:aws:sqs:us-east-1:142019455180:catalogItemsQueue"
+import-service › Running "serverless" from node_modules
+import-service › Warning: Invalid configuration encountered
+import-service ›   at 'functions.importProductsFile.events.0': unrecognized property 'responses'
+import-service › 
+import-service › Learn more about configuration validation here: http://slss.io/configuration-validation
+import-service › Deploying import-service-rs-aws-bootcamp-be to stage dev (us-east-1)
+import-service › × Couldn't read types from file: ./src/types/api-types.d.ts
+import-service › Creating Swagger file...
+import-service › ✔ Service deployed to stack import-service-rs-aws-bootcamp-be-dev (123s)
+import-service › endpoints:
+import-service ›   GET - https://r46mv0zp7a.execute-api.us-east-1.amazonaws.com/dev/import
+import-service ›   GET - https://r46mv0zp7a.execute-api.us-east-1.amazonaws.com/dev/swagger
+import-service ›   GET - https://r46mv0zp7a.execute-api.us-east-1.amazonaws.com/dev/swagger.json
+import-service › functions:
+import-service ›   importProductsFile: import-service-rs-aws-bootcamp-be-dev-importProductsFile (566 kB)
+import-service ›   importFileParser: import-service-rs-aws-bootcamp-be-dev-importFileParser (702 kB)
+import-service ›   swaggerUI: import-service-rs-aws-bootcamp-be-dev-swagger-ui (1.6 kB)
+import-service ›   swaggerJSON: import-service-rs-aws-bootcamp-be-dev-swagger-json (1.8 kB)
+import-service › 1 deprecation found: run 'serverless doctor' for more details
+import-service › Monitor all your API routes with Serverless Console: run "serverless --console"
+import-service › Running "serverless info --verbose --stage dev --param sqsURL=https://sqs.us-east-1.amazonaws.com/142019455180/catalogItemsQueue --param sqsArn=arn:aws:sqs:us-east-1:142019455180:catalogItemsQueue"
+import-service › Running "serverless" from node_modules
+import-service › Warning: Invalid configuration encountered
+import-service ›   at 'functions.importProductsFile.events.0': unrecognized property 'responses'
+import-service › 
+import-service › Learn more about configuration validation here: http://slss.io/configuration-validation
+import-service › service: import-service-rs-aws-bootcamp-be
+import-service › stage: dev
+import-service › region: us-east-1
+import-service › stack: import-service-rs-aws-bootcamp-be-dev
+import-service › endpoint: GET - https://r46mv0zp7a.execute-api.us-east-1.amazonaws.com/dev/import
+import-service › functions:
+import-service ›   importProductsFile: import-service-rs-aws-bootcamp-be-dev-importProductsFile
+import-service ›   importFileParser: import-service-rs-aws-bootcamp-be-dev-importFileParser
+import-service › 
+import-service › Stack Outputs:
+import-service ›   ImportProductsFileLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:142019455180:function:import-service-rs-aws-bootcamp-be-dev-importProductsFile:3
+import-service ›   SwaggerJSONLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:142019455180:function:import-service-rs-aws-bootcamp-be-dev-swagger-json:2
+import-service ›   SwaggerUILambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:142019455180:function:import-service-rs-aws-bootcamp-be-dev-swagger-ui:2
+import-service ›   ImportFileParserLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:142019455180:function:import-service-rs-aws-bootcamp-be-dev-importFileParser:2
+import-service ›   ServiceEndpoint: https://r46mv0zp7a.execute-api.us-east-1.amazonaws.com/dev
+import-service ›   ServerlessDeploymentBucketName: import-service-rs-aws-bo-serverlessdeploymentbuck-11xrpsw9u1ns5
+import-service › 1 deprecation found: run 'serverless doctor' for more details
+import-service › deployed

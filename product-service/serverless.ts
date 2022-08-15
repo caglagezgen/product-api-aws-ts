@@ -1,8 +1,9 @@
 import type { AWS } from "@serverless/typescript";
+import * as dotenv from 'dotenv';
 import getProducts from "@functions/getProductsList";
 import getProductById from "@functions/getProductById";
 import createProduct from "@functions/createProduct";
-import * as dotenv from 'dotenv';
+import catalogBatchProcess from "@functions/catalogBatchProcess";
 
 dotenv.config();
 
@@ -25,6 +26,26 @@ const serverlessConfiguration: AWS = {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
     },
+    iamRoleStatements: [
+      {
+        Effect: "Allow",
+        Action: "sqs:*",
+        Resource: [
+          {
+            "Fn::GetAtt": ["catalogItemsQueue", "Arn"],
+          },
+        ],
+      },
+      {
+        Effect: "Allow",
+        Action: "sns:*",
+        Resource: [
+          {
+            Ref: "createProductTopic",
+          },
+        ],
+      },
+    ],
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
       NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
@@ -32,7 +53,10 @@ const serverlessConfiguration: AWS = {
       PG_PORT: process.env.PG_PORT,
       PG_DATABASE: process.env.PG_DATABASE,
       PG_USERNAME: process.env.PG_USERNAME,
-      PG_PASSWORD: process.env.PG_PASSWORD
+      PG_PASSWORD: process.env.PG_PASSWORD,
+      SNS_TOPIC_ARN: {
+        Ref: "createProductTopic",
+      },
     },
   },
   custom: {
@@ -56,7 +80,60 @@ const serverlessConfiguration: AWS = {
     },
   },
   package: { individually: true },
-  functions: { getProducts, getProductById, createProduct },
+  functions: { getProducts, getProductById, createProduct, catalogBatchProcess },
+  resources: {
+    Resources: {
+      catalogItemsQueue: {
+        Type: "AWS::SQS::Queue",
+        Properties: {
+          QueueName: "catalogItemsQueue",
+        },
+      },
+      createProductTopic: {
+        Type: "AWS::SNS::Topic",
+        Properties: {
+          TopicName: "createProductTopic",
+        },
+      },
+      createProductSubscription: {
+        Type: "AWS::SNS::Subscription",
+        Properties: {
+          Protocol: "email",
+          Endpoint: "caglagzgn@gmail.com",
+          TopicArn: {
+            Ref: "createProductTopic",
+          },
+        },
+      },
+      createProductOverstockSubscription: {
+        Type: "AWS::SNS::Subscription",
+        Properties: {
+          Protocol: "email",
+          Endpoint: "cagla.gezgen@hotmail.com",
+          TopicArn: {
+            Ref: "createProductTopic",
+          },
+          FilterPolicy:{
+            overstock: ["true"]
+          }
+        },
+      },
+    },
+    Outputs: {
+      sqsURL: {
+        Value: {
+          Ref: "catalogItemsQueue"
+        }
+      },
+      sqsArn: {
+        Value: {
+          "Fn::GetAtt": [
+             "catalogItemsQueue",
+             "Arn"
+          ]
+       }
+      }
+    }
+  },
 };
-
 module.exports = serverlessConfiguration;

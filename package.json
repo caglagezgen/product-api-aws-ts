@@ -19,5 +19,8 @@
     "url": "https://github.com/caglagezgen/product-api-aws-ts/issues"
   },
   "homepage": "https://github.com/caglagezgen/product-api-aws-ts#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "@serverless/compose": "^1.3.0"
+  }
 }

@@ -12,7 +12,7 @@ const serverlessConfiguration: AWS = {
     runtime: "nodejs16.x",
     stage: "dev",
     region: "us-east-1",
-    profile: "${env:AWS_PROFILE}",
+    profile: "cagla",
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
@@ -21,6 +21,7 @@ const serverlessConfiguration: AWS = {
       AWS_PROFILE: process.env.AWS_PROFILE,
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
       NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
+      SQS_URL: "${param:sqsURL}",
     },
     iam: {
       role: {
@@ -34,6 +35,11 @@ const serverlessConfiguration: AWS = {
             Effect: "Allow",
             Action: ["s3:*"],
             Resource: ["arn:aws:s3:::${self:custom.importServiceBucket.name}/*"],
+          },
+          {
+            Effect: "Allow",
+            Action: "sqs:*",
+            Resource: ["${param:sqsArn}"],
           },
         ],
       },

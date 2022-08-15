@@ -1,0 +1,37 @@
+{
+  "service": {
+    "id": "wmcx0b5"
+  },
+  "components": {
+    "product-service": {
+      "state": {
+        "detectedFrameworkVersion": "3.21.0"
+      },
+      "outputs": {
+        "GetProductByIdLambdaFunctionQualifiedArn": "arn:aws:lambda:us-east-1:142019455180:function:product-service-dev-getProductById:3",
+        "sqsURL": "https://sqs.us-east-1.amazonaws.com/142019455180/catalogItemsQueue",
+        "SwaggerJSONLambdaFunctionQualifiedArn": "arn:aws:lambda:us-east-1:142019455180:function:product-service-dev-swagger-json:2",
+        "sqsArn": "arn:aws:sqs:us-east-1:142019455180:catalogItemsQueue",
+        "SwaggerUILambdaFunctionQualifiedArn": "arn:aws:lambda:us-east-1:142019455180:function:product-service-dev-swagger-ui:2",
+        "CreateProductLambdaFunctionQualifiedArn": "arn:aws:lambda:us-east-1:142019455180:function:product-service-dev-createProduct:3",
+        "CatalogBatchProcessLambdaFunctionQualifiedArn": "arn:aws:lambda:us-east-1:142019455180:function:product-service-dev-catalogBatchProcess:1",
+        "ServiceEndpoint": "https://f8yw9c2t9g.execute-api.us-east-1.amazonaws.com/dev",
+        "ServerlessDeploymentBucketName": "product-service-dev-serverlessdeploymentbucket-iqmohsozphac",
+        "GetProductsLambdaFunctionQualifiedArn": "arn:aws:lambda:us-east-1:142019455180:function:product-service-dev-getProducts:4"
+      }
+    },
+    "import-service": {
+      "state": {
+        "detectedFrameworkVersion": "3.21.0"
+      },
+      "outputs": {
+        "ImportProductsFileLambdaFunctionQualifiedArn": "arn:aws:lambda:us-east-1:142019455180:function:import-service-rs-aws-bootcamp-be-dev-importProductsFile:3",
+        "SwaggerJSONLambdaFunctionQualifiedArn": "arn:aws:lambda:us-east-1:142019455180:function:import-service-rs-aws-bootcamp-be-dev-swagger-json:2",
+        "SwaggerUILambdaFunctionQualifiedArn": "arn:aws:lambda:us-east-1:142019455180:function:import-service-rs-aws-bootcamp-be-dev-swagger-ui:2",
+        "ImportFileParserLambdaFunctionQualifiedArn": "arn:aws:lambda:us-east-1:142019455180:function:import-service-rs-aws-bootcamp-be-dev-importFileParser:2",
+        "ServiceEndpoint": "https://r46mv0zp7a.execute-api.us-east-1.amazonaws.com/dev",
+        "ServerlessDeploymentBucketName": "import-service-rs-aws-bo-serverlessdeploymentbuck-11xrpsw9u1ns5"
+      }
+    }
+  }
+}
